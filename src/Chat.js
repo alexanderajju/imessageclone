@@ -1,5 +1,5 @@
 import { IconButton } from '@material-ui/core'
-import { MicNone } from '@material-ui/icons'
+import MicNoneOutlinedIcon from '@material-ui/icons/MicNoneOutlined';
 import React, { useState } from 'react'
 import './Chat.css'
 
@@ -36,7 +36,7 @@ const [message,setMessage]=useState("")
 
                 </form>
                 <IconButton>
-            <MicNone className="chat__mic"/>
+            <MicNoneOutlinedIcon className="chat__mic"/>
             </IconButton>
             </div>
          
