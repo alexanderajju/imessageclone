@@ -15,35 +15,34 @@ import { selectUser,setUser,logout } from './user/userSlice';
 function Chat() {
 
 const [message,setMessage]=useState("")
-const [text,setInput]=useState([])
+const [text,setText]=useState([])
 const chatName=useSelector(selectChatName)
 const chatId=useSelector(selectChatId)
 const user=useSelector(selectUser)
 
 useEffect(()=>{
     if(chatId){
-        db.collection('chats').doc(chatId).collection('messages').orderBy('timestamp','desc').onSnapshot(snapshot => (
-
-            setInput(snapshot.docs.map(doc=>({
-                id:doc.id,
-                data:doc.data
-            })))
-        ))
+       db.collection("chats").doc(chatId).collection("messages").orderBy("timestamp","desc").onSnapshot((snapshot)=>(
+           setText(snapshot.docs.map((doc)=>({
+               id:doc.id,
+               data:doc.data(),
+           })))
+       ))
     }
 
 },[chatId])
 
     const sendMessage=(e)=>{
         e.preventDefault()
-        db.collection('chat').doc(chatId).collection('messages').add({
-            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-            message:message,
-            uid: user.providerId,
-  photo:user.photoURL,
-  email:user.email,
-  displayName: user.displayName
+      db.collection("chats").doc(chatId).collection("messages").add({
 
-        })
+        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+        message:message,
+        uid: user.uid,
+photo:user.photo,
+email:user.email,
+displayName: user.displayName
+      })
         setMessage("")
     }
     return (
