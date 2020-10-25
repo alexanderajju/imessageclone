@@ -26,7 +26,12 @@ function Sidebar() {
 
             </div>
             <div className="sidebar__chats">
-<SidebarChats/>
+
+            <SidebarChats/>
+            <SidebarChats/>
+            <SidebarChats/>
+            <SidebarChats/>
+            
             </div>
         </div>
     )

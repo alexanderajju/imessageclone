@@ -1,9 +1,15 @@
+import { Avatar } from '@material-ui/core'
 import React from 'react'
-import './Sidebar.css'
+import './SidebarChats.css'
 function SidebarChats() {
     return (
         <div className="sidebarChats" >
-            <h1>SidebarChats</h1>
+            <Avatar/>
+            <div className="sidebarChats__info">
+                <h3>Channel Name</h3>
+                <p>Last Message ....</p>
+                <small>timestamp</small>
+            </div>
         </div>
     )
 }
