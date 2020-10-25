@@ -22,6 +22,12 @@ const [message,setMessage]=useState("")
             </div>
 
             {/* messages */}
+            <div className="chat__messages">
+                <h2>I am a message </h2>
+                <h2>I am a message </h2>
+                <h2>I am a message </h2>
+                <h2>I am a message </h2>
+            </div>
             {/* input */}
             <div className="chat__input">
                 <form action="">

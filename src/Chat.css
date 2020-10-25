@@ -21,6 +21,9 @@
 .chat__name{
     color: black;
 }
+.chat__messages{
+    flex: 1;
+}
 .chat__input{
     display: flex;
     align-items: center;
