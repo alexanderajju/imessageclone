@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import db from './firebase'
 import './SidebarChats.css'
 import { setChat } from './user/chatSlice'
+import * as timeago from 'timeago.js'
 
 function SidebarChats({id,chatName}) {
     const dispatch=useDispatch()
@@ -26,7 +27,9 @@ db.collection("chats").doc(id).collection("messages").orderBy("timestamp","desc"
             <div className="sidebarChats__info">
     <h3>{chatName}</h3>
     <p>{chatinfo[0]?.message}</p>
-    <small>{new Date(chatinfo[0]?.timestamp.toDate()).toLocaleString()}</small>
+    <small>{
+        timeago.format(
+    new Date(chatinfo[0]?.timestamp?.toDate()).toLocaleString())}</small>
             </div>
         </div>
     )
